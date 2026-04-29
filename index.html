@@ -121,14 +121,15 @@ nav {
 .nav-links a:hover { color:var(--white); }
 .nav-links a:hover::after { transform:scaleX(1); }
 .nav-cta {
-  background: var(--neon); color: var(--ink);
-  padding: 11px 28px; border:none;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800; font-size:.85rem; letter-spacing:2.5px; text-transform:uppercase;
+  background: #1ea854; color: #fff;
+  width: 42px; height: 42px; border:none; border-radius: 50%;
+  display: flex; align-items:center; justify-content:center;
   cursor: pointer; transition: all .2s;
-  clip-path: polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  box-shadow: 0 0 0 0 rgba(37,211,102,0);
+  flex-shrink: 0;
 }
-.nav-cta:hover { background:var(--neon-hi); box-shadow:0 0 32px var(--neon-glow); }
+.nav-cta:hover { background:#25d366; box-shadow: 0 0 0 6px rgba(37,211,102,.18); transform:scale(1.08); }
+.nav-cta svg { width:20px; height:20px; }
 
 /* ─── HERO ───────────────────────────────────────── */
 .hero {
@@ -654,15 +655,16 @@ h1 .h-ghost {
 .c-detail a:hover { text-shadow:0 0 12px var(--neon-glow); }
 .contact-cta-group { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
 .btn-wa {
-  background:#1ea854; border:1px solid #25d366;
-  color:#fff; padding:14px 28px;
-  font-family:'Barlow Condensed',sans-serif; font-weight:800;
-  font-size:.9rem; letter-spacing:2px; text-transform:uppercase;
-  cursor:pointer; transition:all .2s;
-  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+  background:#1ea854; border:none;
+  color:#fff; padding:15px 32px;
+  font-family:'Barlow',sans-serif; font-weight:600;
+  font-size:1rem; letter-spacing:.3px;
+  cursor:pointer; transition:all .25s;
+  border-radius:50px;
   display:inline-flex; align-items:center; gap:10px;
+  box-shadow: 0 4px 20px rgba(37,211,102,.25);
 }
-.btn-wa:hover { background:#25d366; box-shadow:0 6px 24px rgba(37,211,102,.3); }
+.btn-wa:hover { background:#25d366; box-shadow:0 6px 28px rgba(37,211,102,.40); transform:translateY(-2px); }
 .contact-map {
   background:var(--ink-3); border:1px solid rgba(0,191,255,.10);
   height:360px; display:flex; align-items:center; justify-content:center;
@@ -815,7 +817,9 @@ footer {
     <li><a href="#resultados">Resultados</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <button class="nav-cta" onclick="openWA()">Contactar por WhatsApp</button>
+  <button class="nav-cta" onclick="openWA()" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.3.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.2-.2-.4-.2-.7-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3C8.6 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -833,7 +837,10 @@ footer {
       </h1>
       <p class="hero-desc">Transformamos cada vehículo con <em>precisión técnica</em> y productos de la más alta calidad. No es un lavado — es una experiencia que protege, revitaliza y eleva.</p>
       <div class="hero-actions">
-        <button class="btn-primary" onclick="openWA()">Contactar por WhatsApp &rarr;</button>
+        <button class="btn-wa" onclick="openWA()">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.3.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.2-.2-.4-.2-.7-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3C8.6 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          Escribir a Chiappe
+        </button>
         <button class="btn-ghost" onclick="goSection('servicios')">Ver Servicios</button>
       </div>
     </div>
@@ -1030,8 +1037,8 @@ footer {
         </div>
         <div class="contact-cta-group reveal reveal-d4">
           <button class="btn-wa" onclick="openWA()">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.3.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.2-.2-.4-.2-.7-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3C8.6 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
-            Escribir a Pablo por WhatsApp
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.3.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.2-.2-.4-.2-.7-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3C8.6 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+            Escribir a Chiappe
           </button>
         </div>
       </div>
