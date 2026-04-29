@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chiappe Detailing | Estética Vehicular Premium — Buenos Aires</title>
-<meta name="description" content="Chiappe Detailing — Estética vehicular de alta gama en Buenos Aires. Lavado al detalle, interiores, tapizados y motor. Reservá tu turno online.">
-<meta name="keywords" content="detailing autos Buenos Aires, lavado premium vehicular, limpieza interior auto, estética vehicular, car detailing argentina">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Chiappe Detailing","description":"Estética vehicular premium en Buenos Aires","address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"openingHours":"Mo-Sa 08:00-18:00","priceRange":"$$","sameAs":["https://www.instagram.com/ch.detailling/"]}</script>
+<title>Chiappe Detailing | Detailing Artesanal — Buenos Aires</title>
+<meta name="description" content="Chiappe Detailing — Detailing artesanal en Buenos Aires. Pablo lava cada auto a mano, sin atajos. Lavado al detalle, interiores, tapizados y motor.">
+<meta name="keywords" content="lavadero autos Buenos Aires, detailing artesanal, lavado a mano auto, limpieza interior auto, pablo chiappe detailing">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Chiappe Detailing","description":"Detailing artesanal en Buenos Aires. Lavado a mano, interiores, tapizados y motor.","address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"openingHours":"Mo-Sa 08:00-18:00","priceRange":"$$","sameAs":["https://www.instagram.com/ch.detailling/"]}</script>
 
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
@@ -18,8 +18,8 @@
 
 <!-- Open Graph (WhatsApp / redes sociales) -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Chiappe Detailing | Estética Vehicular Premium">
-<meta property="og:description" content="Transformamos tu vehículo con precisión técnica y productos de la más alta calidad. Buenos Aires.">
+<meta property="og:title" content="Chiappe Detailing | Detailing Artesanal — Buenos Aires">
+<meta property="og:description" content="Hecho a mano. Con tiempo. Con cuidado. El detailing de Pablo Chiappe.">
 <meta property="og:image" content="logo.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
@@ -212,10 +212,30 @@ h1 .h-ghost {
   -webkit-text-stroke: 1px rgba(125,223,255,.30);
 }
 
+.hero-tagline {
+  display:flex; align-items:center; gap:14px;
+  margin-bottom:28px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-weight:600; font-style:italic;
+  font-size:clamp(.95rem, 1.4vw, 1.15rem);
+  letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--chrome);
+  opacity:0; animation:fadeRight .9s .65s var(--ease-out) forwards;
+}
+.hero-tagline .tagline-bar {
+  width:32px; height:2px; background:var(--neon);
+  box-shadow:0 0 12px var(--neon-glow);
+  flex-shrink:0;
+}
+.hero-tagline em {
+  color:var(--neon); font-style:italic; font-weight:700;
+  text-shadow:0 0 10px var(--neon-glow-soft);
+}
+
 .hero-desc {
   font-size: 1rem; font-weight:300; color:var(--chrome);
   max-width: 460px; line-height:1.9; margin-bottom:48px;
-  opacity:0; animation:fadeRight .9s .7s var(--ease-out) forwards;
+  opacity:0; animation:fadeRight .9s .75s var(--ease-out) forwards;
 }
 .hero-desc em { color:var(--white); font-style:normal; font-weight:500; }
 
@@ -804,7 +824,33 @@ footer {
   .cal-section,.slots-section,.form-section { padding:28px 24px; }
   .slots-grid { grid-template-columns:repeat(3,1fr); }
   .f-row { grid-template-columns:1fr; }
+/* ─── WA FLOAT BUTTON ────────────────────────────── */
+.wa-float {
+  position:fixed; bottom:24px; right:24px; z-index:900;
+  width:60px; height:60px; border-radius:50%;
+  background:#25d366; border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff;
+  box-shadow:0 4px 24px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,.5);
+  transition:transform .25s var(--ease-out), box-shadow .25s;
+  animation:waPulse 4.5s ease-in-out infinite;
 }
+.wa-float:hover { transform:scale(1.08); }
+.wa-float svg { width:28px; height:28px; }
+@keyframes waPulse {
+  0%, 88%, 100% { box-shadow:0 4px 24px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,.5); }
+  94% { box-shadow:0 4px 24px rgba(37,211,102,.4), 0 0 0 14px rgba(37,211,102,0); }
+}
+.wa-tooltip {
+  position:absolute; right:74px; white-space:nowrap;
+  background:var(--ink-2); border:1px solid var(--gb);
+  padding:9px 16px; font-size:.78rem; font-weight:500;
+  color:var(--white);
+  opacity:0; pointer-events:none; transition:opacity .25s;
+  clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);
+}
+.wa-float:hover .wa-tooltip { opacity:1; }
+@media(max-width:600px) { .wa-tooltip { display:none; } }
 </style>
 </head>
 <body>
@@ -829,17 +875,21 @@ footer {
   <div class="hero-scan"></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-eyebrow"><div class="eyebrow-line"></div><div class="pulse-dot"></div>Estética vehicular premium · Buenos Aires</div>
+      <div class="hero-eyebrow"><div class="eyebrow-line"></div><div class="pulse-dot"></div>Detailing artesanal · Buenos Aires</div>
       <h1>
-        <span class="h-white">EL DETAILING</span>
-        <span class="h-neon">QUE TU</span>
-        <span class="h-ghost">AUTO EXIGE</span>
+        <span class="h-white">HECHO A MANO.</span>
+        <span class="h-neon">CON TIEMPO.</span>
+        <span class="h-ghost">CON CUIDADO.</span>
       </h1>
-      <p class="hero-desc">Transformamos cada vehículo con <em>precisión técnica</em> y productos de la más alta calidad. No es un lavado — es una experiencia que protege, revitaliza y eleva.</p>
+      <div class="hero-tagline">
+        <div class="tagline-bar"></div>
+        <span>Porque el detalle marca <em>la diferencia.</em></span>
+      </div>
+      <p class="hero-desc">Acá no apuramos nada. <em>Cada auto se trabaja como si fuera el primero</em>. Sin atajos, sin productos baratos, sin sorpresas.</p>
       <div class="hero-actions">
         <button class="btn-wa" onclick="openWA()">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.3.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.2-.2-.4-.2-.7-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3C8.6 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
-          Escribir a Chiappe
+          Pedir turno por WhatsApp
         </button>
         <button class="btn-ghost" onclick="goSection('servicios')">Ver Servicios</button>
       </div>
@@ -847,17 +897,17 @@ footer {
     <div class="hero-card reveal">
       <div class="hero-stat-item">
         <div class="hero-stat-num">500+</div>
-        <div class="hero-stat-lbl">Vehículos tratados</div>
+        <div class="hero-stat-lbl">Autos atendidos</div>
       </div>
       <div class="hero-card-divider"></div>
       <div class="hero-stat-item">
         <div class="hero-stat-num">5★</div>
-        <div class="hero-stat-lbl">Rating promedio</div>
+        <div class="hero-stat-lbl">Calificación de clientes</div>
       </div>
       <div class="hero-card-divider"></div>
       <div class="hero-stat-item">
-        <div class="hero-stat-num">4+</div>
-        <div class="hero-stat-lbl">Años de experiencia</div>
+        <div class="hero-stat-num">+4</div>
+        <div class="hero-stat-lbl">Años en el oficio</div>
       </div>
     </div>
   </div>
@@ -873,10 +923,10 @@ footer {
   <div class="section-inner">
     <div class="services-header">
       <div>
-        <div class="s-label reveal"><div class="s-label-line"></div>Nuestros Servicios</div>
-        <h2 class="s-title reveal reveal-d1">DETAILING<br><span class="accent">SIN</span><br>COMPROMISO</h2>
+        <div class="s-label reveal"><div class="s-label-line"></div>Lo que hago</div>
+        <h2 class="s-title reveal reveal-d1">SIMPLE.<br><span class="accent">BIEN</span><br>HECHO.</h2>
       </div>
-      <p class="s-sub reveal reveal-d2">Cada servicio es un proceso meticuloso diseñado para llevar tu vehículo al estándar de los mejores talleres del mundo.</p>
+      <p class="s-sub reveal reveal-d2">No invento servicios para venderte de más. Esto es lo que sé hacer y lo hago bien — un auto a la vez, con el tiempo que cada uno necesita.</p>
     </div>
     <div class="services-grid">
       <div class="svc-card reveal reveal-d1">
@@ -885,7 +935,7 @@ footer {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a3 3 0 0 1 2.8-2h8.4a3 3 0 0 1 2.8 2l2 5"/><path d="M3 13h18v5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-5z"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/></svg>
         </div>
         <div class="svc-name">Lavado al Detalle</div>
-        <p class="svc-desc">Proceso minucioso exterior con productos de pH neutro, descontaminación química y protección de acabados.</p>
+        <p class="svc-desc">El lavado de toda la vida pero como debería hacerse: a mano, sin apuro, con productos que cuidan la pintura en vez de lastimarla.</p>
         <div class="svc-price">DESDE $8.000 ARS</div>
         <ul class="svc-feats">
           <li>Pre-lavado con espuma activa</li>
@@ -901,7 +951,7 @@ footer {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V10a3 3 0 0 1 3-3h1l1-3h4l1 3h1a3 3 0 0 1 3 3v11"/><path d="M5 14h14"/><path d="M8 21v-3"/><path d="M16 21v-3"/></svg>
         </div>
         <div class="svc-name">Interiores &amp; Tapizados</div>
-        <p class="svc-desc">Limpieza profunda de habitáculo, extracción de manchas en tapizados y sanitización premium.</p>
+        <p class="svc-desc">Aspirado a fondo, manchas que parecían imposibles, dashboard como nuevo. Tu auto huele bien y se ve como te gusta.</p>
         <div class="svc-price">DESDE $12.000 ARS</div>
         <ul class="svc-feats">
           <li>Aspirado técnico</li>
@@ -917,7 +967,7 @@ footer {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>
         </div>
         <div class="svc-name">Limpieza de Motor</div>
-        <p class="svc-desc">Desengrase profundo con protección total de conectores y partes eléctricas del compartimento.</p>
+        <p class="svc-desc">Desengrase del compartimento sin meterle agua donde no va. Cuidando lo eléctrico, lo plástico y lo que el mecánico te va a agradecer.</p>
         <div class="svc-price">DESDE $10.000 ARS</div>
         <ul class="svc-feats">
           <li>Desengrase biodegradable</li>
@@ -931,14 +981,14 @@ footer {
         <div class="svc-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/></svg>
         </div>
-        <div class="svc-name">Pack Premium</div>
-        <p class="svc-desc">La experiencia completa Chiappe: Exterior + Interior + Motor + Cera de carnauba a mano.</p>
+        <div class="svc-name">Pack Completo</div>
+        <p class="svc-desc">Todo junto: exterior, interior, motor y cera de carnauba aplicada a mano. Para cuando querés que el auto quede impecable de punta a punta.</p>
         <div class="svc-price">DESDE $28.000 ARS</div>
         <ul class="svc-feats">
           <li>Todo lo anterior</li>
-          <li>Cera de carnauba</li>
+          <li>Cera de carnauba a mano</li>
           <li>Tratamiento de vidrios</li>
-          <li>Certificado de servicio</li>
+          <li>Auto listo para que lo disfrutes</li>
         </ul>
         <button class="svc-cta" onclick="openWA()">Consultar por WhatsApp</button>
       </div>
@@ -951,34 +1001,34 @@ footer {
   <div class="section-inner">
     <div class="ba-intro">
       <div>
-        <div class="s-label reveal"><div class="s-label-line"></div>Resultados Reales</div>
-        <h2 class="s-title reveal reveal-d1">VER PARA<br><span class="accent">CREER</span></h2>
+        <div class="s-label reveal"><div class="s-label-line"></div>El Trabajo Habla</div>
+        <h2 class="s-title reveal reveal-d1">EL ANTES<br>Y EL <span class="accent">DESPUÉS</span></h2>
       </div>
-      <p class="s-sub reveal reveal-d2">Resultados documentados en cada servicio. Lo que ves es lo que entregamos — sin filtros.</p>
+      <p class="s-sub reveal reveal-d2">Las fotos las saco yo mismo antes y después de cada trabajo. Sin filtros, sin retoques. Lo que ves es lo que te llevás.</p>
     </div>
     <div class="ba-grid">
       <div class="ba-pair reveal">
         <div class="ba-card">
           <div class="ba-visual before-vis"><div class="ba-placeholder">FOTO ANTES<br>EXTERIOR</div></div>
           <div class="ba-tag before">Antes</div>
-          <div class="ba-info"><h4>Pintura Opaca</h4><p>Oxidación, alquitrán incrustado, llantas descuidadas</p></div>
+          <div class="ba-info"><h4>Pintura Cansada</h4><p>Oxidación, alquitrán, llantas que no se limpiaban hace tiempo</p></div>
         </div>
         <div class="ba-card">
           <div class="ba-visual after-vis"><div class="ba-placeholder">FOTO DESPUÉS<br>EXTERIOR</div></div>
           <div class="ba-tag after">Después</div>
-          <div class="ba-info"><h4>Brillo Espejo</h4><p>Pintura restaurada, protegida con cera premium</p></div>
+          <div class="ba-info"><h4>Como el Primer Día</h4><p>Pintura limpia, hidratada y protegida con cera a mano</p></div>
         </div>
       </div>
       <div class="ba-pair reveal reveal-d2">
         <div class="ba-card">
           <div class="ba-visual before-vis"><div class="ba-placeholder">FOTO ANTES<br>INTERIOR</div></div>
           <div class="ba-tag before">Antes</div>
-          <div class="ba-info"><h4>Interior Deteriorado</h4><p>Manchas acumuladas, plásticos opacos, mal olor</p></div>
+          <div class="ba-info"><h4>Interior con Historia</h4><p>Manchas, plásticos opacos, ese olor que ya no querés</p></div>
         </div>
         <div class="ba-card">
           <div class="ba-visual after-vis"><div class="ba-placeholder">FOTO DESPUÉS<br>INTERIOR</div></div>
           <div class="ba-tag after">Después</div>
-          <div class="ba-info"><h4>Interior Showroom</h4><p>Tapizados revitalizados, aroma y aspecto de cero km</p></div>
+          <div class="ba-info"><h4>Listo para Disfrutar</h4><p>Tapizados limpios, todo desinfectado, huele bien de verdad</p></div>
         </div>
       </div>
     </div>
@@ -989,25 +1039,25 @@ footer {
 <!-- TESTIMONIALS -->
 <section class="section testi-section">
   <div class="section-inner">
-    <div class="s-label reveal"><div class="s-label-line"></div>Clientes</div>
-    <h2 class="s-title reveal reveal-d1">LO QUE<br><span class="accent">DICEN</span></h2>
+    <div class="s-label reveal"><div class="s-label-line"></div>Lo que dicen los clientes</div>
+    <h2 class="s-title reveal reveal-d1">DEL BARRIO<br><span class="accent">PARA TODOS</span></h2>
     <div class="testi-grid">
       <div class="testi-card reveal reveal-d1">
         <div class="testi-quote">"</div>
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Pablo transformó mi Serie 5 completamente. La pintura quedó como el primer día. Precisión y dedicación que no encontré en ningún otro lado.</p>
-        <div class="testi-author"><div class="testi-avatar">MR</div><div><div class="testi-name">Martín R.</div><div class="testi-vehicle">BMW Serie 5 · Pack Premium</div></div></div>
+        <p class="testi-text">Pablo se toma el tiempo de explicarte qué le va a hacer al auto y por qué. Es de esos tipos a los que les importa el laburo. La pintura quedó como nueva.</p>
+        <div class="testi-author"><div class="testi-avatar">MR</div><div><div class="testi-name">Martín R.</div><div class="testi-vehicle">BMW Serie 5 · Pack Completo</div></div></div>
       </div>
       <div class="testi-card reveal reveal-d2">
         <div class="testi-quote">"</div>
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">El interior de mi Hilux quedó impecable. Manchas de barro que creí imposibles de sacar. Atención de primera, muy puntual y profesional.</p>
+        <p class="testi-text">Tenía la Hilux con manchas de barro de hace meses. Pablo se las arregló en una mañana. Volví por segunda vez y ya es fijo.</p>
         <div class="testi-author"><div class="testi-avatar">CS</div><div><div class="testi-name">Carolina S.</div><div class="testi-vehicle">Toyota Hilux · Interiores</div></div></div>
       </div>
       <div class="testi-card reveal reveal-d3">
         <div class="testi-quote">"</div>
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Reservé online y Pablo confirmó en el mismo momento. El motor quedó increíble. El sistema de turnos es súper cómodo y confiable.</p>
+        <p class="testi-text">Le mandé un mensaje, me coordinó turno enseguida. Trato de barrio, resultado de taller caro. El motor quedó increíble.</p>
         <div class="testi-author"><div class="testi-avatar">FL</div><div><div class="testi-name">Federico L.</div><div class="testi-vehicle">Audi A3 · Motor + Exterior</div></div></div>
       </div>
     </div>
@@ -1017,39 +1067,45 @@ footer {
 <!-- CONTACTO -->
 <section class="section contact-section" id="contacto">
   <div class="section-inner">
-    <div class="s-label reveal"><div class="s-label-line"></div>Contacto</div>
-    <h2 class="s-title reveal reveal-d1">ENCONTRA<span class="accent">NOS</span></h2>
+    <div class="s-label reveal"><div class="s-label-line"></div>Pedí tu turno</div>
+    <h2 class="s-title reveal reveal-d1">HABLAMOS POR<br><span class="accent">WHATSAPP</span></h2>
     <div class="contact-layout">
       <div>
         <div class="contact-items">
           <div class="c-item reveal reveal-d1">
             <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div class="c-detail"><h4>Ubicación</h4><p>Buenos Aires, Argentina<br><em>Dirección exacta al confirmar el turno</em></p></div>
+            <div class="c-detail"><h4>Dónde estamos</h4><p>Buenos Aires<br><em>Te paso la dirección al coordinar el turno</em></p></div>
           </div>
           <div class="c-item reveal reveal-d2">
             <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div>
-            <div class="c-detail"><h4>Instagram</h4><p><a href="https://www.instagram.com/ch.detailling/" target="_blank">@ch.detailling</a> — Resultados y novedades</p></div>
+            <div class="c-detail"><h4>Instagram</h4><p><a href="https://www.instagram.com/ch.detailling/" target="_blank">@ch.detailling</a> — Mirá los trabajos del día a día</p></div>
           </div>
           <div class="c-item reveal reveal-d3">
             <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
-            <div class="c-detail"><h4>Horarios</h4><p>Lunes a Sábado · 8:00 — 18:00 hs</p></div>
+            <div class="c-detail"><h4>Cuándo lavamos</h4><p>Lunes a Sábado · 8:00 a 18:00 hs<br><em>Domingos descanso</em></p></div>
           </div>
         </div>
         <div class="contact-cta-group reveal reveal-d4">
           <button class="btn-wa" onclick="openWA()">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.3.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.2-.2-.4-.2-.7-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3C8.6 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
-            Escribir a Chiappe
+            Mandar mensaje a Pablo
           </button>
         </div>
       </div>
       <div class="contact-map reveal reveal-d2">
         <div class="map-pin"></div>
         <div class="map-txt">Buenos Aires</div>
-        <div class="map-sub">Dirección exacta al confirmar turno</div>
+        <div class="map-sub">Te paso la dirección por WhatsApp</div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- WHATSAPP FLOAT -->
+<button class="wa-float" onclick="openWA()" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.3.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.2-.2-.4-.2-.7-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3C8.6 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+  <span class="wa-tooltip">Mandale un mensaje a Pablo</span>
+</button>
 
 <footer>
   <div class="footer-center">© 2025 Chiappe Detailing<br>Desarrollado por B&amp;B | Britos Berón | Gestión y Evolución digital</div>
@@ -1061,7 +1117,7 @@ footer {
 
 <script>
 // ─── MARQUEE ──────────────────────────────────────
-const items = ['Lavado al Detalle','Limpieza de Interiores','Motor Detailing','Cera de Carnauba','Pack Premium','Tapizados','Descontaminación'];
+const items = ['Lavado a mano','Interiores y tapizados','Limpieza de motor','Cera de carnauba','Pack completo','Sin apuro','Como debe ser'];
 const track = document.getElementById('marqueeTrack');
 const markup = items.map(i=>`<div class="marquee-item">${i}<span class="marquee-sep">◆</span></div>`).join('');
 track.innerHTML = markup.repeat(4);
@@ -1073,7 +1129,7 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 function goSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
-function openWA(){ window.open('https://wa.me/5491100000000?text=Hola%20Pablo,%20quiero%20consultar%20sobre%20un%20turno.','_blank'); }
+function openWA(){ window.open('https://wa.me/5491100000000?text=Hola%20Pablo!%20Vi%20la%20web%20y%20quiero%20coordinar%20un%20turno.','_blank'); }
 </script>
 </body>
 </html>
